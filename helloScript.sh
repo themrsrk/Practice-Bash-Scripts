@@ -167,3 +167,7 @@ echo $(expr $n1 / $n2)
 echo $(expr $n1 - $n2)
 echo $(expr $n1 % $n2)'
 
+#Declare commands is used to set variable and their values/attributes
+declare -r pwdfile=/etc/passwd #-r means readonly variable
+
+echo $pwdfile
