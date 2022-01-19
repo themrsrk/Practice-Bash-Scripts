@@ -44,6 +44,7 @@ echo "Output Store in given File" > file.txt
 
 
 #AND and OR Operators
+: ' #These are multi line comments
 count=12
 if [[ $count -eq 10 && $count -gt 7 ]]
 then
@@ -54,4 +55,115 @@ then
 	echo "Or Statement will execute"
 else
 	echo "This will execute"
+fi '
+
+
+#While and Until Loop
+: '
+The main difference is that while loops are designed to run while
+a condition is satisfied and then terminate once that condition returns
+false. On the other hand, until loops are designed to run while the condition
+returns false and only terminate when the condition returns true'
+
+: '
+number = 1
+#while [[ $number -le 10  ]]
+until [[ $number -ge 11  ]]
+do
+	echo "$number"
+	number=$(( number+1 ))
+
+done'
+
+: '
+#For Loop
+
+#after in there is range that you want to execute this loop from 0 to 1000
+
+for i in {0..20..5}  #{starting..endine..increment By}
+do
+	echo $i
+done'
+
+: '
+for (( i=0; i<1001; i++ )) 
+do
+	if [[ $i -gt 5  ]]
+	then
+	    break
+	fi
+        echo $i
+done'
+
+: '
+for (( i=0; i<1001; i++ ))
+do
+        if [[ $i -gt 5  ]]
+        then
+            continue
+        fi
+        echo $i
+done'
+
+
+
+: '
+#Script input
+args=('@')
+echo $@ #This will print all the values which you've typed
+#echo $# 
+#This will print the length of your array'
+
+: '
+#Export output from one file to another file
+MESSAGE="This is exported message from helloScript"
+export MESSAGE 
+./secondScript.sh'
+
+
+
+: '
+#String Processing
+echo "Enter first word"
+read line1    #this will read the thing whatever you write
+
+echo "Enter Second Word"
+read line2   
+
+echo $line1
+echo $line2
+
+
+
+if [ "$line1" \> "$line2"  ]
+then
+	echo "Line 1 is greater than Line 2"
+elif [ "$line2" \> "$line1"  ]
+then
+	echo "Line 2 is greater than Line 1"
+else
+	echo "Both are equal"
 fi
+
+echo ${line1^} #It capitalize first letter
+echo ${line1^^} #It capitalize all letters'
+
+: '
+#Handling Numbers
+#This is method 1
+n1=10
+n2=20
+echo $(( n1 + n2 ))
+echo $(( n1 * n2 ))
+echo $(( n1 / n2 ))
+echo $(( n1 - n2 ))
+echo $(( n1 % n2 ))
+
+#This is method 2
+
+echo $(expr $n1 + $n2)
+echo $(expr $n1 \* $n2)
+echo $(expr $n1 / $n2)
+echo $(expr $n1 - $n2)
+echo $(expr $n1 % $n2)'
+
