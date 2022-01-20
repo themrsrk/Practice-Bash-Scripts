@@ -167,7 +167,82 @@ echo $(expr $n1 / $n2)
 echo $(expr $n1 - $n2)
 echo $(expr $n1 % $n2)'
 
+
+: '
 #Declare commands is used to set variable and their values/attributes
 declare -r pwdfile=/etc/passwd #-r means readonly variable
 
-echo $pwdfile
+echo $pwdfile'
+
+
+
+
+: '
+#Arrays
+
+car=('Suzuki' 'honda' 'Kia' 'Glory')
+
+echo ${car[@]}
+
+#If we want to delete value from an array then
+unset car[1]
+car[2]="Mercedes"
+
+#If we want to print a particular item in an array then
+echo ${car[1]}
+
+#If we want to print the indexes of an array then
+echo ${!car[@]}
+
+#If we want to print the length of an array then
+echo ${#car[@]}'
+
+
+
+: '
+#Functions
+
+function MyFunction()
+{
+	#echo "This is My function"
+        #echo $1
+	returnValue="I love Mac and Linux"
+	echo $returnValue
+}
+
+#MyFunction Hello
+MyFunction'
+
+
+
+
+
+
+#Files and Directory
+
+#echo "Enter directory name to check whether its exist or not"
+#read directory
+
+#if [ -d "$directory" ] #-d command basically check that directory that if exist or not
+#then
+#	echo "$directory exist"
+#else
+#	echo "$directory does not exist"
+#fi
+
+
+#Make file through user input
+echo "Enter file name you want to make"
+read file
+touch $file
+
+
+#echo "Enter file name to check whether its exist or not"
+#read directory
+
+#if [ -f "$file" ] #-d command basically check that directory that if exist or not
+#then
+#       echo "$file exist"
+#else
+#       echo "$file does not exist"
+#fi
