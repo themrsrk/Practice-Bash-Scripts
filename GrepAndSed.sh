@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -x
 
 
 #Grep comand basicaly search the text from the particular file
